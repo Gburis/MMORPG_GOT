@@ -25,7 +25,7 @@
 						<input type="text" name="usuario" id="usuario" placeholder="Usuário" class="form-control" autocomplete="off" />
 						<input type="password" name="senha" id="senha" placeholder="Senha" class="form-control" />
 						<button type="button" class="btn btn-success">Entrar</button>
-						<button type="button" class="btn btn-info">Cadastro</button>
+						<button type="button" class="btn btn-info" id="register">Cadastro</button>
 					</div>
 				</form>
 			</div>
@@ -47,3 +47,17 @@
 		
 	</body>
 </html>
+<script>
+	var index = {
+		register: function(){
+			let btn = document.getElementById('register');
+			btn.addEventListener('click', function(){
+				window.location.href = "/cadastro";
+			});
+		},
+		start: function(){
+			this.register();
+		}
+	};
+	index.start();
+</script>

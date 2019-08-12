@@ -13,8 +13,14 @@ module.exports.cadastrar = function(application, req, res){
 
     if(errors){
         res.render('cadastro', {validacao: errors, values: dados});
-        return false;
-    }else{
-        res.send('cadastrado');
+        return;
     }
+    let conn = application.config.dbConnection;
+    
+    let user = new application.app.models.UsuariosDAO(conn);    
+
+    user.insert(dados);
+    
+    res.send('cadastrado');
+    
 }
